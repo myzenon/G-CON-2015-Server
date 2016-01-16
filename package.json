@@ -1,0 +1,24 @@
+{
+  "name": "gcon-2015-server",
+  "version": "0.0.1",
+  "description": "a server for project gcon-2015 contest",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myzenon/G-CON-2015-Server.git"
+  },
+  "author": "Zenon 'SI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/myzenon/G-CON-2015-Server/issues"
+  },
+  "homepage": "https://github.com/myzenon/G-CON-2015-Server#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "mongodb": "^2.1.4"
+  }
+}

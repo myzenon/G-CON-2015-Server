@@ -1,0 +1,39 @@
+<html ng-app="App">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Shop</title>
+  <script src="components/angular/angular.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <a href="food.html">Add Food</a>
+  <br><br><br>
+  <div ng-controller="formController">
+    Shop Name : <input type="text" ng-model="form.name"><br>
+    Description : <input type="text" ng-model="form.description"><br>
+    Telephone : <input type="text" ng-model="form.telephone"><br>
+    Address : <input type="text" ng-model="form.address"><br>
+    Image (ex. shop1.jpg) : <input type="text" ng-model="form.image"><br>
+    Latitude : <input type="text" ng-model="form.latitude"><br>
+    Longitude : <input type="text" ng-model="form.longitude"><br>
+    <input type="button" value="Send" ng-click="addShop()">
+    <br><br><br>
+    {{ form }}
+  </div>
+  <script type="text/javascript">
+    angular.module('App', [])
+      .controller('formController', function ($scope, $http) {
+        $scope.addShop = function () {
+          $http.post('/shop', $scope.form).success(function (data) {
+            alert('Add Shop Success');
+          })
+          .error(function (error) {
+            alert(error);
+          })
+          ;
+          $scope.form = {};
+        };
+      })
+    ;
+  </script>
+</body>
+</html>

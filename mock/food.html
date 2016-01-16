@@ -1,0 +1,42 @@
+<html ng-app="App">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Food</title>
+  <script src="components/angular/angular.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <a href="index.html">Add Shop</a>
+  <br><br><br>
+  <div ng-controller="formController">
+    Shop :
+    {{shop}}
+    <select ng-options="shop as shop.name for shop in shoplist track by shop._id" ng-model="form.shop"></select>
+    <br>
+    Food Name : <input type="text" ng-model="form.name"><br>
+    Price : <input type="text" ng-model="form.price"><br>
+    Image (ex. food1.jpg) : <input type="text" ng-model="form.image"><br>
+    <input type="button" value="Send" ng-click="addFood()">
+    <br><br><br>
+    {{ form }}
+  </div>
+  <script type="text/javascript">
+    angular.module('App', [])
+      .controller('formController', function ($scope, $http) {
+        $http.get('/shoplist').success(function (data) {
+          $scope.shoplist = data;
+        });
+        $scope.addFood = function () {
+          $http.post('/food', $scope.form).success(function (data) {
+            alert('Add Food Success');
+          })
+          .error(function (error) {
+            alert(error);
+          })
+          ;
+          $scope.form = {};
+        };
+      })
+    ;
+  </script>
+</body>
+</html>
