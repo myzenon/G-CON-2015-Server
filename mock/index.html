@@ -15,6 +15,12 @@
     Image (ex. shop1.jpg) : <input type="text" ng-model="form.image"><br>
     Latitude : <input type="text" ng-model="form.latitude"><br>
     Longitude : <input type="text" ng-model="form.longitude"><br>
+    Status :
+    <select ng-model="form.status">
+      <option value="on" selected>On</option>
+      <option value="off">Off</option>
+    </select>
+    <br>
     <input type="button" value="Send" ng-click="addShop()">
     <br><br><br>
     {{ form }}
