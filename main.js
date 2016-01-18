@@ -8,7 +8,7 @@ var app = express();
 let port = 9987;
 
 // MongoDB Pool
-MongoClient.connect('mongodb://localhost:27017/server', function(error, database) {
+MongoClient.connect('mongodb://localhost:27017/g-con', function(error, database) {
 
   if(error) {
     console.error(error.name + ': ' + error.message);
