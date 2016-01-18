@@ -5,11 +5,9 @@ var router = express.Router();
 var MongoClient = require('mongodb').MongoClient;
 var bodyParser = require('body-parser');
 
-MongoClient.connect('mongodb://localhost:27017/server', function(error, db) {
+MongoClient.connect('mongodb://localhost:27017/g-con', function(error, db) {
 
-  //http://localhost:9987/img/
   router.post('/shop', function (req, res) {
-    req.body.image = 'http://localhost:9987/img/' + req.body.image;
     req.body.latitude = parseFloat(req.body.latitude);
     req.body.longitude = parseFloat(req.body.longitude);
     db.collection('shop').insert(req.body);
